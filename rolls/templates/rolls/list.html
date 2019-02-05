@@ -9,7 +9,12 @@
 
                 <ul clss="list-group">
                 {% for roll in object_list %}
-                    <li><a href="{% url 'rolls:detail' roll.id %}">{{ roll.title }} -- {{ roll.year_made }}</a></li>
+                    <li>
+                        <a href="{% url 'rolls:detail' roll.id %}">
+                            <img src="{{ roll.image.url }}"/><br/>
+                            {{ roll.title }} -- {{ roll.year_made }}
+                        </a>
+                    </li>
                 {% endfor %}
                 </ul>
 

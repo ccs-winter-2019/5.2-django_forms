@@ -5,7 +5,7 @@
 
     <h2>Add a Roll to Your Library</h2>
 
-    <form id="roll-create-form" method="POST" action="{% url 'rolls:create' %}">
+    <form enctype="multipart/form-data" id="roll-create-form" method="POST" action="{% url 'rolls:create' %}">
         {% csrf_token %}
 
         {{ form.as_p }}

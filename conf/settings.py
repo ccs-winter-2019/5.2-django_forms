@@ -25,6 +25,14 @@ SECRET_KEY = 'yv#ah-p)osa2si6w$1hl#hddo(u_y=9@kwb(8!sc+f$*%2=irs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+########## MEDIA CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
+MEDIA_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'media'))
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
+MEDIA_URL = '/media/'
+########## END MEDIA CONFIGURATION
+
 ALLOWED_HOSTS = [
     'localhost',
     '.herokuapp.com',
@@ -64,6 +72,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],

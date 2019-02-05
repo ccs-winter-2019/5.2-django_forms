@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView, ListView, CreateView
 from django.contrib.auth import get_user_model, login, authenticate
@@ -27,6 +27,7 @@ class RollCreateView(CreateView):
     template_name = 'rolls/create.html'
     model = Roll
     form_class = RollCreateForm
+    success_url = reverse_lazy('rolls:index')
 
 
 # # Create your views here.
