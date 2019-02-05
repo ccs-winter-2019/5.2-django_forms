@@ -13,6 +13,7 @@ urlpatterns = [
     # Paths for our django form demo
     path('', views.HomeView.as_view(), name='index'),
     path('create/', views.RollCreateView.as_view(), name='create'),
+    path('update/<int:pk>/', views.RollUpdateView.as_view(), name='update'),
 
     # Paths from previous demo
     path('detail/<int:awesome>/', views.DetailView.as_view(), name='detail'),

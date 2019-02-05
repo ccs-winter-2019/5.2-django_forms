@@ -14,6 +14,7 @@
                             <img src="{{ roll.image.url }}"/><br/>
                             {{ roll.title }} -- {{ roll.year_made }}
                         </a>
+                        <a href="{% url 'rolls:update' roll.id %}">Edit Roll</a>
                     </li>
                 {% endfor %}
                 </ul>

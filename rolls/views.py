@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
-from django.views.generic import TemplateView, ListView, CreateView
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView
 from django.contrib.auth import get_user_model, login, authenticate
 
 from .models import Roll
@@ -24,7 +24,14 @@ class HomeView(ListView):
 
 
 class RollCreateView(CreateView):
-    template_name = 'rolls/create.html'
+    template_name = 'rolls/form.html'
+    model = Roll
+    form_class = RollCreateForm
+    success_url = reverse_lazy('rolls:index')
+
+
+class RollUpdateView(UpdateView):
+    template_name = 'rolls/form.html'
     model = Roll
     form_class = RollCreateForm
     success_url = reverse_lazy('rolls:index')
