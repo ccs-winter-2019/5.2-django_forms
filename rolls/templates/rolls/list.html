@@ -1,0 +1,19 @@
+{% extends 'rolls/base.html' %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col">
+
+                <p class="float-right"><a href="{% url 'rolls:create' %}">Add</a></p>
+
+                <ul clss="list-group">
+                {% for roll in object_list %}
+                    <li><a href="{% url 'rolls:detail' roll.id %}">{{ roll.title }} -- {{ roll.year_made }}</a></li>
+                {% endfor %}
+                </ul>
+
+        </div>
+    </div>
+
+{% endblock content %}

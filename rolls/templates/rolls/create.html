@@ -1,0 +1,25 @@
+{% extends 'rolls/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h2>Add a Roll to Your Library</h2>
+
+    <form id="roll-create-form" method="POST" action="{% url 'rolls:create' %}">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Add Roll">
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'rolls/js/parsley.js' %}"></script>
+    <script>
+        (function($){
+            $(function(){
+                $('#roll-create-form').parsley();
+            });
+        }(jQuery));
+    </script>
+{% endblock content %}
